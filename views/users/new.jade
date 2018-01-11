@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+  h1= title
+  form#formAddUser(name="adduser", method="post", action="saveNew")
+    span
+      label Username:&nbsp;
+      input#inputUserName(type="text", name="username", size="20")
+    br
+    br
+    span
+      label Email:&nbsp;
+      input#inputUserEmail(type="text", name="useremail", size="40")
+    br
+    br
+    button#btnSubmit(type="submit") Save
+    &nbsp;
+    a(href="list")
+      button#btnBack(type="button") Back

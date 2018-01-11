@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+  h1= title
+  form#formEditUser(name="edituser", method="post", action="saveEdit")
+    input#inputMethod(type="hidden", name="_method", value="put")
+    input#inputId(type="hidden", name="id", value="#{user._id}")
+    span
+      label Username:&nbsp;
+      input#inputUserName(type="text", name="username", value="#{user.username}", size="20")
+    br
+    br
+    span
+      label Email:&nbsp;
+      input#inputUserEmail(type="text", name="useremail", value="#{user.email}", size="40")
+    br
+    br
+    span
+      button#btnSubmit(type="submit") Save
+      | 
+      a(href="list")
+        button#btnBack(type="button") Back

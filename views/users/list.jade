@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+  h1.
+    User List
+  each user, i in userlist
+    div(style="margin:0.75em;")
+      button#btnDelete(type="button", title="Delete", onclick="submitDelete('#{user._id}')") X
+      | 
+      a(href="edit?id=#{user._id}")= user.username
+  br
+  p
+    a(href="new")
+      button#btnNew(type="button") Add New User
+    | 
+    a(href="/")
+      button#btnBack(type="button") Back
+
+  form#formDeleteUser(name="deleteuser", method="post", action="saveDelete")
+      input#inputMethod(type="hidden", name="_method", value="delete")
+      input#inputId(type="hidden", name="id")
+
+  script.
+    var submitDelete = function(id) {
+      deleteuser.id.value = id;
+      deleteuser.submit();
+    };
